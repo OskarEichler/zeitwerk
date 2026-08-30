@@ -573,8 +573,12 @@ module Zeitwerk
       else
         # For whatever reason the constant that corresponds to this namespace has
         # already been defined, we have to recurse.
+        namespace = cref.get
+        unless namespace.is_a?(Module)
+          raise Zeitwerk::Error, "#{cref} is expected to be a namespace, should be a class or module (got #{namespace.class})"
+        end
         log { "the namespace #{cref} already exists, descending into #{subdir}" }
-        define_autoloads_for_dir(subdir, cref.get, external:)
+        define_autoloads_for_dir(subdir, namespace, external:)
       end
     end
 
