@@ -69,15 +69,14 @@ class TestAutovivification < LoaderTest
   end
 
   test 'raises a controlled error if an existing namespace is not a class or module' do
-    Namespace.const_set(:Admin, 1)
+    Namespace::Admin = 1
+    on_teardown { remove_const :Admin, from: Namespace }
     files = [['admin/x.rb', '']]
 
     error = assert_raises(Zeitwerk::Error) do
       with_setup(files, namespace: Namespace)
     end
     assert_equal "#{Namespace}::Admin is expected to be a namespace, should be a class or module (got Integer)", error.message
-  ensure
-    Namespace.__send__(:remove_const, :Admin)
   end
 
   test 'autovivification is synchronized' do
