@@ -259,7 +259,7 @@
 * A message is logged if an autoload did not define the expected constant.
 
   When that happens, `Zeitwerk::NameError` is raised and you normally see the
-  exception. But if the error is shallowed, and you are inspecting the logs to
+  exception. But if the error is swallowed, and you are inspecting the logs to
   investigate something, this new message may be helpful.
 
 * By default, `Zeitwerk::Loader#dirs` filters ignored root directories out.
@@ -616,7 +616,7 @@ enforced with stricter formal visibility.
 
 ## 2.1.7 (29 June 2019)
 
-* Prevent the inflector from deleting parts un multiword constants whose capitalization is the same. For example, `point_2d` should be inflected as `Point2d`, rather than `Point`. While the inflector is frozen, this seems to be just wrong, and the refinement should be backwards compatible, since those constants were not usable.
+* Prevent the inflector from deleting parts in multiword constants whose capitalization is the same. For example, `point_2d` should be inflected as `Point2d`, rather than `Point`. While the inflector is frozen, this seems to be just wrong, and the refinement should be backwards compatible, since those constants were not usable.
 
 * Make eager loading consistent with auto loading with regard to detecting namespaces that do not define the matching constant.
 

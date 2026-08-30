@@ -973,7 +973,7 @@ loader.on_load('SomeApiClient') do |klass, _abspath|
 end
 ```
 
-Some uses cases:
+Some use cases:
 
 * Doing something with a reloadable class or module in a Rails application during initialization, in a way that plays well with reloading. As in the previous example.
 * Delaying the execution of the block until the class is loaded for performance.
@@ -1364,7 +1364,7 @@ loader.cpath_expected_at('8.rb') # => Zeitwerk::NameError
 
 This method does not parse file contents and does not guarantee files define the returned constant path.
 
-Similarly, this method does not validate the project tree. If the project has conflicting oridinary and nsfiles for the same namespace, for example, the call will return the expected constant path for each of them without raising.
+Similarly, this method does not validate the project tree. If the project has conflicting ordinary files and nsfiles for the same namespace, for example, the call will return the expected constant path for each of them without raising.
 
 `Zeitwerk::Loader#cpath_expected_at` is designed to be used with individual paths. If you want to know all the expected constant paths in the project, please use `Zeitwerk::Loader#all_expected_cpaths`, documented next.
 
@@ -1414,7 +1414,7 @@ The order of the hash entries is undefined.
 
 This method does not parse file contents and does not guarantee files define the returned constant path.
 
-Similarly, this method does not validate the project tree. If the project has conflicting oridinary and nsfiles for the same namespace, for example, the call will return the expected constant path for each of them without raising.
+Similarly, this method does not validate the project tree. If the project has conflicting ordinary files and nsfiles for the same namespace, for example, the call will return the expected constant path for each of them without raising.
 
 <a id="markdown-encodings" name="encodings"></a>
 ### Encodings
